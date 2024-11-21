@@ -79,9 +79,8 @@ console.log(getEvenNumbers([1,2,3]));  // [2]
 - time complexity: O(n) - linear time complexity because we have to iterate over the array to find the even numbers
 - space complexity: O(n) - linear space complexity because .filter() method returns a new array
 
----------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------
 6- get the unique numbers in the array
-
 
 function getUniqueNumbers(arr) {
     return arr.filter((num, index) => arr.indexOf(num) === index);
@@ -105,9 +104,27 @@ console.log(getUniqueNumbers([1,2,1]));  // [1,2]
 - time complexity: O(n) - linear time complexity because we have to iterate over the array to create a set
 - space complexity: O(n) - linear space complexity because we use a set to store the unique numbers
 
----------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------
+7- get the two maximum numbers in the array
 
-
+function getTwoMaxNumbers(arr) {
+    let max1 = arr[0];
+    let max2 = arr[1];
+    if (max1 < max2) {
+        [max1, max2] = [max2, max1];
+    }
+    for (let i = 2; i < arr.length; i++) {
+        if (arr[i] > max1) {
+            max2 = max1;
+            max1 = arr[i];
+        } else if (arr[i] > max2) {
+            max2 = arr[i];
+        }
+    }
+    return [max1, max2];
+}
+    
+------------------------------------------------------------------------------------------------------------------------------------------------
 8-bubble sort  :
 ---------------
 idea: compare each element with the next element
@@ -334,3 +351,5 @@ function subarraysWithKDistinct(nums,k){  //[1,2,1,2,3] , k=2  output: 7 [1,2],[
 
 
 ---------------------------------------------------------------------------------------------------------------------------
+
+*/
